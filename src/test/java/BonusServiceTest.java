@@ -36,38 +36,40 @@ public class BonusServiceTest {
         // производим проверку (сравниваем ожидаемый и фактический):
         Assertions.assertEquals(expected, actual);
     }
-        @Test
-        void shouldCalculateForUnRegisteredAndOverLimit() {
 
-            bonusService service = new bonusService();
+    @Test
+    void shouldCalculateForUnRegisteredAndOverLimit() {
 
-            // подготавливаем данные
-            long amount = 17_000;
-            boolean registered = false;
-            long expected = 170;
+        bonusService service = new bonusService();
 
-            //вызываем целевой метод:
-            long actual = service.calculate(amount, registered);
+        // подготавливаем данные
+        long amount = 17_000;
+        boolean registered = false;
+        long expected = 170;
 
-            // проводим проверку. сравниваем ожидаемый и фактический результат.
-            Assertions.assertEquals(expected, actual);
+        //вызываем целевой метод:
+        long actual = service.calculate(amount, registered);
 
-        }
-            @Test
-            void shouldCalculateForUnRegisteredAndUnderLimit() {
-                bonusService service = new bonusService();
-                long amount = 170_000;
-                boolean registered = false;
-                long expected = 500;
+        // проводим проверку. сравниваем ожидаемый и фактический результат.
+        Assertions.assertEquals(expected, actual);
 
-                // вызываем целевой метод:
-                long actual = service.calculate(amount, registered);
+    }
 
-                // сравниваем соттветствие фактического и ожидаемого результата
+    @Test
+    void shouldCalculateForUnRegisteredAndUnderLimit() {
+        bonusService service = new bonusService();
+        long amount = 170_000;
+        boolean registered = false;
+        long expected = 500;
 
-                Assertions.assertEquals(actual, expected);
-            }
+        // вызываем целевой метод:
+        long actual = service.calculate(amount, registered);
+
+        // сравниваем соттветствие фактического и ожидаемого результата
+
+        Assertions.assertEquals(actual, expected);
+    }
 
 
-        }
+}
 
